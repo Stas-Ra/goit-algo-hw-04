@@ -10,25 +10,26 @@
 
 
 from pathlib import Path
+path = Path("G:/PROJECTS/.git/PROJECTS/PROJECTS/PROJECTS/cats_info.txt")
+if path.exists():
 
-def get_cats_info(path):
-    with open(path, "r", encoding="utf-8", errors="replace") as file:
-        if not file:
-            return "No file available"
-        else:
+    def get_cats_info(path):
+
+        with open(path, "r", encoding="utf-8", errors="replace") as file:
             cats_info = []
+
             for line in file:
                 cat_info = {"id": "", "name": "", "age": ""}
-                # line = file.read()
-                # cat_info = {"id": "", "name": "", "age": ""}
                 cat_info["id"] = line.split(",")[0]
                 cat_info["name"] = line.split(",")[1]
                 cat_info["age"] = line.split(",")[2].strip()
-                # return cat_info
                 cats_info.append(cat_info)
             return cats_info
 
-print(get_cats_info("G:\PROJECTS\.git\PROJECTS\PROJECTS\PROJECTS\cats_info.txt"))
+    print(get_cats_info(path))
+
+else:
+    print("No valid file")
             
 
 
