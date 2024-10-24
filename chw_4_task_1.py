@@ -7,17 +7,17 @@
 #     )
 
 from pathlib import Path
-def total_salary(path):
+path = Path("G:/PROJECTS/.git/PROJECTS/PROJECTS/PROJECTS/salary_developers.txt")
+if path.exists():
+    def total_salary(path):
 
         with open(path, "r", encoding="utf-8", errors="strict") as file:
-            if not file:
-                return "No file avialable"
-            else:
-                salary = list()
-                for line in file:
-                    salary.append(float(line.split(",")[1]))
-                return (sum(salary), sum(salary)//len(salary))
+            salary = list()
+            for line in file:
+                salary.append(float(line.split(",")[1]))
+            return (sum(salary), sum(salary)//len(salary))
     
-total, average = total_salary("salary_developers.txt")
-  
-print((f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average}"))
+    total, average = total_salary(path)
+    print((f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average}"))
+else:
+    print("No valid file")
