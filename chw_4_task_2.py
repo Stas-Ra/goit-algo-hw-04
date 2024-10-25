@@ -10,10 +10,13 @@
 
 
 from pathlib import Path
-path = Path("G:/PROJECTS/.git/PROJECTS/PROJECTS/PROJECTS/cats_info.txt")
-if path.exists():
 
-    def get_cats_info(path):
+path = Path("G:/PROJECTS/.git/PROJECTS/PROJECTS/PROJECTS/cats_info.txt")
+
+
+def get_cats_info(path):
+        
+    if path.exists():
 
         with open(path, "r", encoding="utf-8", errors="replace") as file:
             cats_info = []
@@ -25,11 +28,13 @@ if path.exists():
                 cat_info["age"] = line.split(",")[2].strip()
                 cats_info.append(cat_info)
             return cats_info
+        
+    else:
+        print("No valid file")
 
-    print(get_cats_info(path))
+print(get_cats_info(path))
 
-else:
-    print("No valid file")
+
             
 
 
