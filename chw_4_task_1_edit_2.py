@@ -8,7 +8,7 @@
 
 from pathlib import Path
 
-path = Path("G:/PROJECTS/.git/PROJECTS/PROJECTS/PROJECTS/salary_developers.txt") 
+path = Path("G:/PROJECTS/.git/PROJECTS/PROJECTS/PROJECTS/salary_developers.txt")
 
 
 def total_salary(path):
