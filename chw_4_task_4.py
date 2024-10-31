@@ -17,14 +17,16 @@ def change_contact(args, contacts):
     else:
         return "This name not found"
 
-def show_phone(*args):
+def show_phone(args, contacts):
     name, *_ = args    
-    return name
+    result = contacts.get(name)
+    return result
 
-def show_all(**kwargs):     
-    for arg in kwargs:
-        phone = kwargs[arg]
-        print(f"{arg}: {phone}")
+def show_all(contacts):     
+    result = ""
+    for key, value in contacts.items():
+        result = result + f"{key}: {value}\n"
+    return result
 
 
 def main():
@@ -45,10 +47,9 @@ def main():
         elif command == "change":
             print(change_contact(args, contacts))
         elif command == "phone":
-            print(contacts.get(show_phone(*args)))
+            print(show_phone(args, contacts))
         elif command == "all":
-            show_all(**contacts)
-
+            print(show_all(contacts))
         else:
             print("Invalid command.")
 
